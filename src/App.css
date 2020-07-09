@@ -219,10 +219,9 @@ footer {
   button {
     font-size: 17px;
   }
-
   .weatherImg {
-    height: 0rem;
-    width: 0rem;
+    height: 187px;
+    width: -140px;
   }
 }
 
@@ -249,5 +248,10 @@ footer {
   }
   .searchAgain {
     margin-top: 16px;
+  }
+
+  .weatherImg {
+    height: 159px;
+    width: -109px;
   }
 }
