@@ -1,38 +1,253 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --bgColor: #ffb5c0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--bgColor);
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  max-height: 100vh;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.sun,
+.cloud {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20rem;
+  height: 20rem;
+  z-index: 1;
+  display: block;
 }
 
-@keyframes App-logo-spin {
+.sun {
+  top: -65px;
+  left: -65px;
+  background-image: url(/sun.png);
+}
+
+.cloud {
+  background-image: url(/cloud.png);
+  bottom: -65px;
+  right: -65px;
+}
+
+ul {
+  padding: 0px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+button {
+  padding: 10px;
+  border-radius: 7px;
+  border-color: black;
+  background-color: #ffcdd4;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: small;
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover,
+button:active {
+  background-color: #f4abb5;
+  cursor: pointer;
+}
+
+/* --------------------
+        Form
+  -------------------- */
+
+form,
+.weatherData {
+  background-color: white;
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+
+input {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1.5px solid rgb(0, 0, 0);
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  transition: 0.2s;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input:hover {
+  background-color: #e4e4e4;
+}
+input:focus {
+  background-color: white;
+  padding-right: 100px;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.label {
+  margin: 0 auto;
+  display: flex;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 25px;
+  background-color: #fff;
+}
+
+/* --------------------
+        Footer
+  -------------------- */
+
+footer {
+  font-size: 3vh;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.material-icons {
+  font-size: 3vh;
+  color: black;
+  animation: pulse 0.53s infinite ease-in-out reverse;
+  padding: 2px;
+}
+
+@keyframes pulse {
   from {
-    transform: rotate(0deg);
+    transform: scale(0.8);
+    color: pink;
   }
+
   to {
-    transform: rotate(360deg);
+    transform: scale(1.1);
+    color: red;
+  }
+}
+
+.weatherImg {
+  background-image: url("/weather-app.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  background-position: center;
+  width: 100%;
+  height: 150px;
+  right: -106px;
+  bottom: -2px;
+}
+
+/* media query */
+
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: var(--bgColor);
+  }
+  .label {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+
+  input {
+    font-size: 24px;
+    margin-bottom: 23px;
+  }
+
+  button {
+    font-size: 20px;
+  }
+
+  .weatherImg {
+    height: 210px;
+    right: -140px;
+  }
+
+  form {
+    border-radius: 15px;
+    padding: 60px;
+  }
+
+  .cloud,
+  .sun {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .label {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+  input {
+    font-size: 20px;
+    margin-bottom: 23px;
+  }
+
+  button {
+    font-size: 17px;
+  }
+
+  .weatherImg {
+    height: 0rem;
+    width: 0rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  form {
+    padding: 23px;
+  }
+
+  .label {
+    font-size: 29px;
+    margin-bottom: 16px;
+  }
+  input {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  .search {
+    margin-top: 13px;
+  }
+  .searchAgain {
+    margin-top: 16px;
   }
 }
